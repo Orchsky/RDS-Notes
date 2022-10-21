@@ -21,17 +21,29 @@ Scenario: In order to SSH instance between different folks how can pem be shared
 6.  sudo systemctl status amazon-ssm-agent
 7.  sudo tail -f /var/log/amazon/ssm/amazon-ssm-agent.log --> Check the logs 
 
+
+RDS: 
+
+Connect to writer instance: 
+
+CREATE DATABASE ratings; USE ratings; SELECT DATABASE(); SHOW TABLES; 
+
+CREATE TABLE ratings (author VARCHAR(20), rating TINYINT, timerated DATETIME); 
+
+SHOW TABLES; 
+
+DESCRIBE ratings; 
+
+INSERT INTO ratings ( author, rating, timerated ) VALUES ( "Tia Williams", 10, "2018-06-26 10:06:47"), ( "Adrian Cantril", 10, "2018-06-23 10:06:27”); 
+
+Select * from ratings;
+
+Connect to Reader instance and run: 
+INSERT INTO ratings (author,ratings,timerated) VALUES ("Ivanka Z.", 1, "2025-25-25 10:10:10","Ravana G.", 4,"2026-26-26 10:10:10", "Sophia H.", 7, "2027-27-27 10:10:10");
+
+
 Homework: 
 
 Take existing configuration and make sure wordpress is connected to backend mysql instance and up and running.
 
 Acceptance criteria: You can hit the wordpress website in the browser using instance public IP. 
-
-
-
-
-INSERT INTO ratings (author,ratings,timerated) VALUES ("Ivanka Z.", 1, "2025-25-25 10:10:10","Ravana G.", 4,"2026-26-26 10:10:10", "Sophia H.", 7, "2027-27-27 10:10:10");
-
-
-In 1 day how many passangers fly through JFK, Heatrow and Dubai?
-10 million
